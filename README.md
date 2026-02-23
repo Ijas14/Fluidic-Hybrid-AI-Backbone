@@ -181,12 +181,12 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 | **v2** | **17.3M** | **384** | **128** | **5.99** | **2.3 hours** | **1,199 MB** |
 
 #### v1 (10.5M) Training Logs
-[v1 part 1](/home/ijas/NOLIMIT/proof/training/v1_10.5M/v1_10.5M_train(part 1).png.png)
-[v1 part 2](/home/ijas/NOLIMIT/proof/training/v1_10.5M/v1_10.5M_train(part 2).png.png)
+- [v1 part 1](proof/training/v1_10.5M/v1_10.5M_train(part%201).png.png)
+- [v1 part 2](proof/training/v1_10.5M/v1_10.5M_train(part%202).png.png)
 
 #### v2 (17.3M) Training Logs
-[v2 part 1](/home/ijas/NOLIMIT/proof/training/v2_17.3M/v2_17.3M_train(part 1).png)
-[v2 part 2](/home/ijas/NOLIMIT/proof/training/v2_17.3M/v2_17.3M_train(part 2).png)
+- [v2 part 1](proof/training/v2_17.3M/v2_17.3M_train(part%201).png)
+- [v2 part 2](proof/training/v2_17.3M/v2_17.3M_train(part%202).png)
 
 ### Inference Benchmarks
 
