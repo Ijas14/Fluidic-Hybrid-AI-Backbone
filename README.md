@@ -103,16 +103,12 @@ NOLIMIT/
 ├── api_server.py         # OpenAI-compatible API server (Lemonade Bridge)
 ├── test.py               # Interactive CLI for checkpoint testing
 ├── data/
-│   ├── tokenizer.json    # 16K BPE tokenizer
-│   └── corpus.bin        # Tokenized Wikitext-103 (zero-copy mmap)
+│   └── tokenizer.json    # 16K BPE tokenizer
 │    
 ├── tools/
 │   ├── prepare_data.py   # Build tokenizer + binary corpus
 │   ├── nf4_compress.py   # AMD Quark NF4 quantization
 │   └── assemble_quantized.py
-├── models/               # Trained models and checkpoints
-│   ├── v1_10.5M/         # 10.5M parameter version
-│   └── v2_17.3M/         # 17.3M parameter version
 └──
 ```
 
