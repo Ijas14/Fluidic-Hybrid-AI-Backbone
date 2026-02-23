@@ -123,7 +123,7 @@ NOLIMIT/
 ### Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/NOLIMIT.git
+git clone https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone
 cd NOLIMIT
 
 python -m venv .venv
