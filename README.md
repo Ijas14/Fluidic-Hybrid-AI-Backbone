@@ -188,6 +188,16 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 - [v2 part 1](proof/training/v2_17.3M/v2_17.3M_train(part%201).png)
 - [v2 part 2](proof/training/v2_17.3M/v2_17.3M_train(part%202).png)
 
+### 📥 Download Trained Weights
+The trained model weights are hosted in the official project release for high-speed download:
+
+| Model | Parameters | File Name | Size |
+| :--- | :--- | :--- | :--- |
+| **v1 Backbone** | 10.5M | [`final_10.5M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 41 MB |
+| **v2 Backbone** | 17.3M | [`final_17.3M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
+
+> **Note:** These weights are designed for direct loading into the `FluidicHybrid` class via `torch.load()`.
+
 ### Inference Benchmarks
 
 | Model | Tokens/sec | Inference VRAM | Notes |
