@@ -190,8 +190,6 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 |-------|-----------|---------------|-------|
 | v1 (10.5M) | 259 tok/s | 80 MB | Fragmented word output |
 | **v2 (17.3M)** | **219 tok/s** | **132 MB** | **Partial phrase-level coherence** |
-| Llama-2 7B (quantized) | ~30-50 tok/s | ~4,000 MB | Full sentence coherence |
-| GPT-2 124M | ~100 tok/s | ~500 MB | Paragraph coherence |
 
 > **Note:** NOLIMIT generates 4-8× faster than comparably-sized Transformer models while using 30-50× less VRAM — a direct result of the O(1) constant-memory architecture.
 
