@@ -102,17 +102,13 @@ NOLIMIT/
 ├── inference.py          # Text generation & model evaluation
 ├── api_server.py         # OpenAI-compatible API server (Lemonade Bridge)
 ├── data/
-│   ├── tokenizer.json    # 16K BPE tokenizer
-│   ├── corpus.bin        # Tokenized Wikitext-103 (zero-copy mmap)
-│   └── reasoning_traces.json
+│   └── tokenizer.json    # 16K BPE tokenizer
+│   
 ├── tools/
 │   ├── prepare_data.py   # Build tokenizer + binary corpus
 │   ├── nf4_compress.py   # AMD Quark NF4 quantization
-│   ├── assemble_quantized.py
-│   └── generate_traces.py
-├── models/               # Trained models and checkpoints
-│   ├── v1_10.5M/         # 10.5M parameter version
-│   └── v2_17.3M/         # 17.3M parameter version
+│   └── assemble_quantized.py
+└──
 ```
 
 ## Quick Start
