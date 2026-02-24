@@ -213,9 +213,16 @@ The checkpoints demonstrate continuous learning — from random noise to structu
 
 The model progressively learns: token frequencies → word co-occurrence → grammatical fragments → partial phrases. Checkpoints are included in `models/` for reproducibility.
 
-Final trained weights are structured as:
-- `models/v1_10.5M/final.pt` — 10.5M parameter model (d=256)
-- `models/v2_17.3M/final.pt` — 17.3M parameter model (d=384)
+### 📥 Download Trained Weights
+The trained model weights are hosted in the official project release for high-speed download:
+
+| Model | Parameters | File Name | Size |
+| :--- | :--- | :--- | :--- |
+| **v1 Backbone** | 10.5M | [`final_10.5M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 41 MB |
+| **v2 Backbone** | 17.3M | [`final_17.3M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
+
+> **Note:** These weights are designed for direct loading into the `FluidicHybrid` class via `torch.load()`.
+
 
 ## Inference
 
