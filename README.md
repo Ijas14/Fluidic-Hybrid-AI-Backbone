@@ -164,7 +164,7 @@ python train.py
 | VRAM Usage | ~1.2 GB |
 | Training | DEQ Phantom Gradient + AMP FP16 |
 
-Checkpoints save every 100 iterations to `models/v2_17.3M/checkpoints/` and `models/v1_10.5M/checkpoints/`.
+Checkpoints save every 100 iterations for checking continuous learning 
 
 ### Training Benchmarks
 
