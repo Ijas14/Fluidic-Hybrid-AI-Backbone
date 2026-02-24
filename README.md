@@ -195,7 +195,7 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 
 > **Note:** NOLIMIT generates 4-8× faster than comparably-sized Transformer models while using 30-50× less VRAM — a direct result of the O(1) constant-memory architecture.
 
-### Learning Progress (Proof of Concept)
+### Learning Progress 17.3M model (Proof of Concept)
 
 The checkpoints demonstrate continuous learning — from random noise to structured English. All outputs generated with `python test.py --checkpoint <path>` using prompt **"The city was built"**:
 
@@ -208,7 +208,7 @@ The checkpoints demonstrate continuous learning — from random noise to structu
 | Iter 900 | 5.98 | `in the series of the final to be that . During the end` |
 | **Final** | **5.99** | **`and had been made . During the end of the game 's . She was made up`** |
 
-The model progressively learns: token frequencies → word co-occurrence → grammatical fragments → partial phrases. Checkpoints are included in `models/` for reproducibility.
+The model progressively learns: token frequencies → word co-occurrence → grammatical fragments → partial phrases.
 
 ### 📥 Download Trained Weights
 The trained model weights are hosted in the official project release for high-speed download:
