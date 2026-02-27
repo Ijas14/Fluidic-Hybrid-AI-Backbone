@@ -202,7 +202,7 @@ The trained model weights are hosted in the official project release for high-sp
 | :--- | :--- | :--- | :--- |
 | **v1 Backbone** | 10.5M | [`final_10.5M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 41 MB |
 | **v2 Backbone** | 17.3M | [`final_17.3M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
-| **v3 Backbone** | 17.3M | [`best_val_model.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
+| **v3 Backbone** | 17.3M | [`v3_17.3M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
 
 > **Note:** These weights are designed for direct loading into the `FluidicHybrid` class via `torch.load()`.
 
