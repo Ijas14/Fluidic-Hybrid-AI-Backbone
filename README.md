@@ -139,6 +139,7 @@ Compiles a 16K BPE tokenizer and Wikitext-103 into a zero-copy memory-mapped bin
 
 ### Dataset
 
+WIKITEXT-103 ( used for 10.3M and v2_17.3M )
 | Property | Value |
 |----------|-------|
 | **Source** | [Wikitext-103](https://huggingface.co/datasets/wikitext) (Merity et al.) |
@@ -146,6 +147,15 @@ Compiles a 16K BPE tokenizer and Wikitext-103 into a zero-copy memory-mapped bin
 | **Tokenizer** | Custom 16K BPE (trained from scratch) |
 | **Format** | Zero-copy memory-mapped binary (`numpy.memmap`) |
 | **Storage** | ~64 MB on disk |
+
+TinyStories ( used for v3_17.3M )
+| Property | Value |
+|----------|-------|
+| **Source** | [TinyStories](https://huggingface.co/datasets/roneneldan/TinyStories) (Eldan et al.) |
+| **Tokens** | ~110M tokens |
+| **Tokenizer** | Custom 16K BPE (trained from scratch) |
+| **Format** | Zero-copy memory-mapped binary (`numpy.memmap`) |
+| **Storage** | ~220 MB on disk |
 
 ## Training
 
@@ -157,11 +167,11 @@ python train.py
 
 All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 6500M (4GB VRAM).
 
-| Model | Params | d_model | seq_len | Loss (final) | Train Time | Train VRAM |
-|-------|--------|---------|---------|-------------|------------|------------|
-| v1 | 10.5M | 256 | 256 | 5.9 | 4.9 hours | 1,244 MB |
-| **v2** | **17.3M** | **384** | **128** | **5.99** | **2.3 hours** | **1,199 MB** |
-| **v3** | **17.3M** | **384** | **128** | **3.56** | **9.8 hours** | **2,182 MB** |
+| Model | Params | d_model | seq_len | Epochs | Loss (final) | Train Time | Train VRAM |
+|-------|--------|---------|---------|--------|-------------|------------|------------|
+| v1 | 10.5M | 256 | 256 | ~0.30 | 5.9 | 4.9 hours | 1,244 MB |
+| **v2** | **17.3M** | **384** | **128** | **~0.03** | **5.99** | **2.3 hours** | **1,199 MB** |
+| **v3** | **17.3M** | **384** | **128** | **~0.15** | **3.56** | **9.8 hours** | **2,182 MB** |
 
 #### v1 (10.5M) Training Logs
 - [v1 part 1](proof/training/v1_10.5M/v1_10.5M_train(part%201).png.png)
