@@ -172,7 +172,7 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 - [v2 part 2](proof/training/v2_17.3M/v2_17.3M_train(part%202).png)
 
 #### v3 (17.3M) Training Logs
-- [2000-Iteration Training Log (TXT)](proof/training/v3_17.3M/v3_17.3M_train_2000_iters.log)
+- [2000-Iteration Training Log (TXT)](proof/training/v3_17.3M_train_2000_iters.log)
 
 
 ### Inference Benchmarks
