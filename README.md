@@ -103,7 +103,6 @@ NOLIMIT/
 ├── api_server.py         # OpenAI-compatible API server (Lemonade Bridge)
 ├── data/
 │   └── tokenizer.json    # 16K BPE tokenizer
-│   
 ├── tools/
 │   ├── prepare_data.py   # Build tokenizer + binary corpus
 │   ├── nf4_compress.py   # AMD Quark NF4 quantization
@@ -154,18 +153,6 @@ Compiles a 16K BPE tokenizer and Wikitext-103 into a zero-copy memory-mapped bin
 python train.py
 ```
 
-| Parameter | Value |
-|-----------|-------|
-| Parameters | 17.3M |
-| Layers | 4 × FluidicBlock |
-| Hidden Dim | 384 |
-| Sequence Length | 128 |
-| Effective Batch | 64 (8 × 8 accumulation) |
-| VRAM Usage | ~1.2 GB |
-| Training | DEQ Phantom Gradient + AMP FP16 |
-
-Checkpoints save every 100 iterations for checking continuous learning 
-
 ### Training Benchmarks
 
 All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 6500M (4GB VRAM).
@@ -174,6 +161,7 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 |-------|--------|---------|---------|-------------|------------|------------|
 | v1 | 10.5M | 256 | 256 | 5.9 | 4.9 hours | 1,244 MB |
 | **v2** | **17.3M** | **384** | **128** | **5.99** | **2.3 hours** | **1,199 MB** |
+| **v3** | **17.3M** | **384** | **128** | **3.56** | **9.8 hours** | **2,182 MB** |
 
 #### v1 (10.5M) Training Logs
 - [v1 part 1](proof/training/v1_10.5M/v1_10.5M_train(part%201).png.png)
@@ -183,6 +171,9 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 - [v2 part 1](proof/training/v2_17.3M/v2_17.3M_train(part%201).png)
 - [v2 part 2](proof/training/v2_17.3M/v2_17.3M_train(part%202).png)
 
+#### v3 (17.3M) Training Logs
+- [2000-Iteration Training Log (TXT)](proof/training/v3_17.3M/v3_17.3M_train_2000_iters.log)
+
 
 ### Inference Benchmarks
 
@@ -190,23 +181,19 @@ All benchmarks measured on **HP Victus 15** — AMD Ryzen 5 5600H / Radeon RX 65
 |-------|-----------|---------------|-------|
 | v1 (10.5M) | 259 tok/s | 80 MB | Fragmented word output |
 | **v2 (17.3M)** | **219 tok/s** | **132 MB** | **Partial phrase-level coherence** |
+| **v3 (17.3M)** | **~219 tok/s** | **132 MB** | **Basic grammar & short semantic narrative** |
 
 > **Note:** NOLIMIT generates 4-8× faster than comparably-sized Transformer models while using 30-50× less VRAM — a direct result of the O(1) constant-memory architecture.
 
 ### Learning Progress 17.3M model (Proof of Concept)
 
-The checkpoints demonstrate continuous learning — from random noise to structured English. All outputs generated with `python test.py --checkpoint <path>` using prompt **"The city was built"**:
+The model demonstrate continuous learning — from random noise to structured English. The output generated using prompt **"The city was built"**:
 
 | Checkpoint | Loss | Output |
 |-----------|------|--------|
-| Iter 100 | 7.27 | `on a single , the first on , the " . of the as` |
-| Iter 300 | 6.70 | `of the team . However , and to as . " . The first` |
-| Iter 500 | 6.20 | `a short distance were a series of the first @-@ in his name` |
-| Iter 700 | 6.06 | `, is in @-@ , who of them . The song and the band` |
-| Iter 900 | 5.98 | `in the series of the final to be that . During the end` |
-| **Final** | **5.99** | **`and had been made . During the end of the game 's . She was made up`** |
+| **v3 (Iter 2000)**| **3.56** | **`sandcastles with her pocket . She did not happy and angry . She told her mommy and her friends were playing for the park with her new friend .`** |
 
-The model progressively learns: token frequencies → word co-occurrence → grammatical fragments → partial phrases.
+The model progressively learns: token frequencies → word co-occurrence → grammatical fragments → partial phrases → basic semantic narrative. Due to the 17.3M architecture missing an MLP logic block, the model's complexity caps out at the ~3.56 plateau seen in v3.
 
 ### 📥 Download Trained Weights
 The trained model weights are hosted in the official project release for high-speed download:
@@ -215,6 +202,7 @@ The trained model weights are hosted in the official project release for high-sp
 | :--- | :--- | :--- | :--- |
 | **v1 Backbone** | 10.5M | [`final_10.5M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 41 MB |
 | **v2 Backbone** | 17.3M | [`final_17.3M.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
+| **v3 Backbone** | 17.3M | [`best_val_model.pt`](https://github.com/Ijas14/Fluidic-Hybrid-AI-Backbone/releases/latest) | 69 MB |
 
 > **Note:** These weights are designed for direct loading into the `FluidicHybrid` class via `torch.load()`.
 
