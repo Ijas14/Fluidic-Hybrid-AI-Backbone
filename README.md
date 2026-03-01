@@ -225,31 +225,6 @@ python inference.py
 
 Generates text from trained checkpoints using autoregressive sampling with temperature and top-k filtering.
 
-## API Server
-
-The **Lemonade Bridge** exposes an OpenAI-compatible API, allowing the Fluidic-Hybrid model to be dropped into *any* existing AI tool that speaks the ChatCompletions protocol — [LibreChat](https://github.com/danny-avila/LibreChat), [Open WebUI](https://github.com/open-webui/open-webui), [Continue.dev](https://continue.dev), or any local LLM interface. Zero integration work required.
-
-```bash
-python api_server.py
-```
-
-```bash
-curl http://localhost:8000/v1/chat/completions \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "fluidic-hybrid-17.3M",
-    "messages": [{"role": "user", "content": "Hello"}],
-    "max_tokens": 64
-  }'
-```
-
-| Endpoint | Description |
-|----------|-------------|
-| `GET /v1/models` | List available models |
-| `POST /v1/chat/completions` | Generate text (streaming supported) |
-
-This means the Fluidic-Hybrid model runs as a local Lemonade-compatible server — swappable with any model in the AMD ecosystem without changing a single line of client code.
-
 ## Why Not Transformers?
 
 | Feature | Transformer | Fluidic-Hybrid |
